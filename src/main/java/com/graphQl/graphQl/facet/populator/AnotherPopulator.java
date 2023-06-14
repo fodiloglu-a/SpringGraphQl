@@ -1,13 +1,19 @@
 package com.graphQl.graphQl.facet.populator;
 
+import com.graphQl.graphQl.facet.converter.BookConverter;
+import com.graphQl.graphQl.facet.converter.CategoryConverter;
 import com.graphQl.graphQl.facet.dto.AnotherDTO;
 import com.graphQl.graphQl.model.AnotherModel;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class AnotherPopulator implements Populator<AnotherDTO,AnotherModel>{
 
 
+    private final CategoryConverter categoryConverter;
+    private final BookConverter bookConverter;
     @Override
     public AnotherDTO populate(AnotherDTO target, AnotherModel source) {
         target.setName(source.getName());
@@ -16,8 +22,8 @@ public class AnotherPopulator implements Populator<AnotherDTO,AnotherModel>{
         target.setAddress(source.getAddress());
         target.setResume(source.getResume());
         target.setNationality(source.getNationality());
-        target.setCategoryModels(source.getCategoryModels());
-        target.setBookModels(source.getBookModels());
+        target.setCategoryModels(categoryConverter.convertAll(source.getCategoryModels()));
+        target.setBookModels(bookConverter.convertAll(source.getBookModels()));
         return target;
 
 
@@ -32,8 +38,8 @@ public class AnotherPopulator implements Populator<AnotherDTO,AnotherModel>{
         source.setEMail(target.getEMail());
         source.setResume(target.getResume());
         source.setNationality(target.getNationality());
-        source.setCategoryModels(target.getCategoryModels());
-        source.setBookModels(target.getBookModels());
+        source.setCategoryModels(categoryConverter.reConvertAll(target.getCategoryModels()));
+        source.setBookModels(bookConverter.reConvertAll(target.getBookModels()));
         return source;
 
 

@@ -21,8 +21,8 @@ public class AnotherDTO {
     private String nationality;
 
 
-    private List<CategoryModel> categoryModels;
+    private List<CategoryDTO> categoryModels;
 
 
-    private List<BookModel> bookModels = new ArrayList<>();
+    private List<BookDTO> bookModels = new ArrayList<>();
 }

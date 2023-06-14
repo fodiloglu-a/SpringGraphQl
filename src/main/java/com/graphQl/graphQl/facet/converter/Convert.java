@@ -1,7 +1,12 @@
 package com.graphQl.graphQl.facet.converter;
 
+import java.util.List;
+
 public interface Convert<Target,Source>{
 
-     void convert(Target target,Source source);
-     void reConvert(Source source,Target target);
+     Target convert(Target target, Source source);
+     Source reConvert(Source source, Target target);
+
+     List<Target> convertAll(List<Source> sourceList);
+     List<Source> reConvertAll(List<Target> targetList);
 }

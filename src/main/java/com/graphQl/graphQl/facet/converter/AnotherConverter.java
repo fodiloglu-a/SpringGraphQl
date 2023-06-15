@@ -2,8 +2,10 @@ package com.graphQl.graphQl.facet.converter;
 import com.graphQl.graphQl.facet.dto.AnotherDTO;
 import com.graphQl.graphQl.facet.populator.AnotherPopulator;
 import com.graphQl.graphQl.model.AnotherModel;
+import jakarta.annotation.Resource;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AnotherConverter implements Convert<AnotherDTO,AnotherModel> {
 
+    @Resource
     private final AnotherPopulator populator;
 
 

@@ -4,18 +4,18 @@ import com.graphQl.graphQl.facet.populator.AnotherPopulator;
 import com.graphQl.graphQl.model.AnotherModel;
 import jakarta.annotation.Resource;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
-@RequiredArgsConstructor
+
 public class AnotherConverter implements Convert<AnotherDTO,AnotherModel> {
 
     @Resource
-    private final AnotherPopulator populator;
+    private  AnotherPopulator populator;
 
 
 

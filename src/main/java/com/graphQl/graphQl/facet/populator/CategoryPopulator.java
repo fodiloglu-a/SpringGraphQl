@@ -4,14 +4,17 @@ import com.graphQl.graphQl.facet.converter.AnotherConverter;
 import com.graphQl.graphQl.facet.converter.BookConverter;
 import com.graphQl.graphQl.facet.dto.CategoryDTO;
 import com.graphQl.graphQl.model.CategoryModel;
+import jakarta.annotation.Resource;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
-@Component
-@RequiredArgsConstructor
+
 public class CategoryPopulator implements Populator<CategoryDTO, CategoryModel> {
-    private final BookConverter bookConverter;
-    private final AnotherConverter anotherConverter;
+    @Resource
+    private   BookConverter bookConverter;
+    @Resource
+    private  AnotherConverter anotherConverter;
     @Override
     public CategoryDTO populate(CategoryDTO target, CategoryModel source) {
         target.setName(source.getName());

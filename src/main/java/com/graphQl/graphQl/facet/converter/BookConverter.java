@@ -3,18 +3,20 @@ package com.graphQl.graphQl.facet.converter;
 import com.graphQl.graphQl.facet.dto.BookDTO;
 import com.graphQl.graphQl.facet.populator.BookPopulator;
 import com.graphQl.graphQl.model.BookModel;
+import jakarta.annotation.Resource;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
-@RequiredArgsConstructor
+
 public class BookConverter  implements Convert<BookDTO, BookModel> {
 
 
-    private final BookPopulator populator;
+    @Resource
+    private  BookPopulator populator;
     @Override
     public BookDTO convert(BookDTO bookDTO, BookModel bookModel) {
         return populator.populate(bookDTO,bookModel);

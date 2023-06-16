@@ -2,18 +2,17 @@ package com.graphQl.graphQl.facet.populator;
 
 import com.graphQl.graphQl.facet.converter.AnotherConverter;
 import com.graphQl.graphQl.facet.converter.CategoryConverter;
-import com.graphQl.graphQl.facet.dto.AnotherDTO;
-import com.graphQl.graphQl.facet.dto.BookDTO;
-import com.graphQl.graphQl.facet.dto.CategoryDTO;
-import com.graphQl.graphQl.model.BookModel;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
 
-@Component
-@RequiredArgsConstructor
+import com.graphQl.graphQl.facet.dto.BookDTO;
+
+import com.graphQl.graphQl.model.BookModel;
+import jakarta.annotation.Resource;
+
 public class BookPopulator implements Populator<BookDTO, BookModel>{
-    private final AnotherConverter anotherConverter;
-    private final CategoryConverter categoryConverter;
+    @Resource
+    private   AnotherConverter anotherConverter;
+    @Resource
+    private   CategoryConverter categoryConverter;
     @Override
     public BookDTO populate(BookDTO target, BookModel source) {
         target.setName(source.getName());

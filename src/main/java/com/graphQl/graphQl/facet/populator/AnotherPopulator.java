@@ -25,8 +25,25 @@ public class AnotherPopulator implements Populator<AnotherDTO,AnotherModel>{
         target.setAddress(source.getAddress());
         target.setResume(source.getResume());
         target.setNationality(source.getNationality());
-        target.setCategoryModels(categoryConverter.convertAll(source.getCategoryModels()));
-        target.setBookModels(bookConverter.convertAll(source.getBookModels()));
+        if (!source.getCategoryModels().isEmpty()){
+            try {
+                target.setCategoryModels(categoryConverter.convertAll(source.getCategoryModels()));
+
+            }catch (Exception e){
+                e.getMessage();
+            }
+        }
+        if (!source.getBookModels().isEmpty()){
+            try {
+                target.setBookModels(bookConverter.convertAll(source.getBookModels()));
+
+            }catch (Exception e){
+                e.getMessage();
+            }
+        }
+
+
+
         return target;
 
 
@@ -41,8 +58,23 @@ public class AnotherPopulator implements Populator<AnotherDTO,AnotherModel>{
         source.setEMail(target.getEMail());
         source.setResume(target.getResume());
         source.setNationality(target.getNationality());
-        source.setCategoryModels(categoryConverter.reConvertAll(target.getCategoryModels()));
-        source.setBookModels(bookConverter.reConvertAll(target.getBookModels()));
+        if (!target.getCategoryModels().isEmpty()){
+            try {
+                source.setCategoryModels(categoryConverter.reConvertAll(target.getCategoryModels()));
+
+            }catch (Exception e){
+                e.getMessage();
+            }
+        }
+        if (!target.getBookModels().isEmpty()){
+            try {
+                source.setBookModels(bookConverter.reConvertAll(target.getBookModels()));
+            }catch (Exception e){
+                e.getMessage();
+            }
+        }
+
+
         return source;
 
 

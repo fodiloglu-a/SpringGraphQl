@@ -1,0 +1,28 @@
+type Query{
+    getAll:AnotherModel
+}
+
+type Mutation{
+    create(anotherDTO:AnotherDTO):AnotherModel
+
+}
+type AnotherModel{
+    id:ID!,
+    name:String,
+    surname:String,
+    address:String,
+    eMail:String,
+    resume:String
+    nationality:String
+}
+
+
+
+input AnotherDTO {
+    name:String,
+    surname:String,
+    address:String,
+    eMail:String,
+    resume:String,
+    nationality:String
+}

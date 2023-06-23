@@ -32,7 +32,11 @@ public class CategoryConverter implements Convert<CategoryDTO, CategoryModel> {
         List<CategoryModel> categoryModelList = categoryModels;
         for (CategoryModel categoryModel : categoryModelList) {
             CategoryDTO categoryDTO = null;
-            categoryDTOS.add(populator.populate(categoryDTO, categoryModel));
+           try {
+               categoryDTOS.add(populator.populate(categoryDTO, categoryModel));
+           }catch (Exception e){
+               e.getMessage();
+           }
         }
 
         return categoryDTOS;
@@ -44,7 +48,11 @@ public class CategoryConverter implements Convert<CategoryDTO, CategoryModel> {
 
         for (CategoryDTO dto : categoryDTOS) {
             CategoryModel model = null;
-            categoryModelList.add(populator.rePopulate(model, dto));
+           try {
+               categoryModelList.add(populator.rePopulate(model, dto));
+           }catch (Exception e){
+               e.getMessage();
+           }
         }
 
         return categoryModelList;

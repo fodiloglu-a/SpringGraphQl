@@ -5,9 +5,7 @@ import com.graphQl.graphQl.facet.converter.BookConverter;
 import com.graphQl.graphQl.facet.dto.CategoryDTO;
 import com.graphQl.graphQl.model.CategoryModel;
 import jakarta.annotation.Resource;
-import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.stereotype.Component;
+
 
 
 public class CategoryPopulator implements Populator<CategoryDTO, CategoryModel> {
@@ -19,8 +17,21 @@ public class CategoryPopulator implements Populator<CategoryDTO, CategoryModel> 
     public CategoryDTO populate(CategoryDTO target, CategoryModel source) {
         target.setName(source.getName());
         target.setSummary(source.getSummary());
-        target.setBookModels(bookConverter.convertAll(source.getBookModels()));
-        target.setAnotherModels(anotherConverter.convertAll(source.getAnotherModels()));
+        if (!source.getBookModels().isEmpty()){
+            try {
+                target.setBookModels(bookConverter.convertAll(source.getBookModels()));
+            }catch (Exception e){
+                e.getMessage();
+            }
+        }
+
+        if (!source.getAnotherModels().isEmpty()){
+            try {
+                target.setAnotherModels(anotherConverter.convertAll(source.getAnotherModels()));
+            }catch (Exception e){
+                e.getMessage();
+            }
+        }
         return target;
 
     }
@@ -29,8 +40,22 @@ public class CategoryPopulator implements Populator<CategoryDTO, CategoryModel> 
     public CategoryModel rePopulate(CategoryModel source, CategoryDTO target) {
         source.setName(target.getName());
         source.setSummary(target.getSummary());
-        source.setAnotherModels(anotherConverter.reConvertAll(target.getAnotherModels()));
-        source.setBookModels(bookConverter.reConvertAll(target.getBookModels()));
+        if(!target.getBookModels().isEmpty()){
+            try {
+                source.setBookModels(bookConverter.reConvertAll(target.getBookModels()));
+            }catch (Exception e){
+                e.getMessage();
+            }
+        }
+        if(!target.getAnotherModels().isEmpty()){
+            try {
+                source.setAnotherModels(anotherConverter.reConvertAll(target.getAnotherModels()));
+            }catch (Exception e){
+                e.getMessage();
+            }
+        }
+
+
         return source;
     }
 }

@@ -40,7 +40,13 @@ public class AnotherConverter implements Convert<AnotherDTO,AnotherModel> {
         List<AnotherModel> anotherModelList=anotherModels;
         for (AnotherModel anotherModel : anotherModelList) {
             AnotherDTO anotherDTO=null;
-            anotherDTOS.add(populator.populate(anotherDTO,anotherModel));
+            try {
+                anotherDTOS.add(populator.populate(anotherDTO,anotherModel));
+
+            }catch (Exception e){
+                e.getMessage();
+            }
+
         }
         return anotherDTOS;
     }
@@ -51,7 +57,10 @@ public class AnotherConverter implements Convert<AnotherDTO,AnotherModel> {
         List<AnotherModel> anotherModelList=new ArrayList<>();
         for (AnotherDTO anotherDTO : anotherDTOList) {
             AnotherModel anotherModel=null;
-            anotherModelList.add(populator.rePopulate(anotherModel,anotherDTO));
+            try {
+                anotherModelList.add(populator.rePopulate(anotherModel,anotherDTO));
+            }catch (Exception e)
+            {e.getMessage();}
         }
         return anotherModelList;
 

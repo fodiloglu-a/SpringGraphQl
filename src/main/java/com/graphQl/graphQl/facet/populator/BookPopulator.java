@@ -19,8 +19,21 @@ public class BookPopulator implements Populator<BookDTO, BookModel>{
         target.setSummary(source.getSummary());
         target.setPageCount(source.getPageCount());
         target.setPublicationDate(source.getPublicationDate());
-        target.setCategoryModel(categoryConverter.convert(target.getCategoryModel(), source.getCategoryModel()));
-        target.setAnotherModel(anotherConverter.convert(target.getAnotherModel(),source.getAnotherModel()));
+        if (source.getCategoryModel() != null){try {
+            target.setCategoryModel(categoryConverter.convert(target.getCategoryModel(), source.getCategoryModel()));
+        }catch (Exception e){
+            e.getMessage();
+        }
+        }
+        if (source.getAnotherModel() !=null){
+            try {
+                target.setAnotherModel(anotherConverter.convert(target.getAnotherModel(),source.getAnotherModel()));
+            }catch (Exception e){
+                e.getMessage();
+            }
+
+        }
+
         return target;
 
     }
@@ -31,8 +44,23 @@ public class BookPopulator implements Populator<BookDTO, BookModel>{
         source.setSummary(target.getSummary());
         source.setPageCount(target.getPageCount());
         source.setPublicationDate(target.getPublicationDate());
-        source.setAnotherModel(anotherConverter.reConvert(source.getAnotherModel(),target.getAnotherModel()));
-        source.setCategoryModel(categoryConverter.reConvert(source.getCategoryModel(),target.getCategoryModel()));
+        if (target.getCategoryModel() != null){try {
+            source.setCategoryModel(categoryConverter.reConvert(source.getCategoryModel(),target.getCategoryModel()));
+        }catch (Exception e){
+            e.getMessage();
+        }
+        }
+        if (target.getAnotherModel() !=null){
+            try {
+                source.setAnotherModel(anotherConverter.reConvert(source.getAnotherModel(),target.getAnotherModel()));
+            }catch (Exception e){
+                e.getMessage();
+            }
+
+        }
+
+
+
         return source;
 
     }

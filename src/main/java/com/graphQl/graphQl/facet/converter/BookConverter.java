@@ -33,7 +33,11 @@ public class BookConverter  implements Convert<BookDTO, BookModel> {
         List<BookModel> bookModelList=bookModels;
         for (BookModel bookModel : bookModelList) {
             BookDTO bookDTO=null;
-            bookDTOS.add(populator.populate(bookDTO,bookModel));
+           try {
+               bookDTOS.add(populator.populate(bookDTO,bookModel));
+           }catch (Exception e){
+               e.getMessage();
+           }
         }
         return bookDTOS;
     }
@@ -45,7 +49,11 @@ public class BookConverter  implements Convert<BookDTO, BookModel> {
 
         for (BookDTO bookDTO : bookDTOList) {
             BookModel bookM=null;
-            bookModelList.add(populator.rePopulate(bookM,bookDTO));
+           try {
+               bookModelList.add(populator.rePopulate(bookM,bookDTO));
+           }catch (Exception e){
+               e.getMessage();
+           }
         }
         return bookModelList;
     }

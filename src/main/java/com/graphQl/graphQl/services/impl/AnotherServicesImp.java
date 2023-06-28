@@ -61,4 +61,43 @@ public class AnotherServicesImp implements AnotherServices {
         }
     return null;
     }
+ 
+
+    @Override
+    public String delete(int id) {
+        try {
+            AnotherModel anotherModel=anotherDao.findById((long) id).get();
+            if (anotherModel==null){
+                return "Another is not found by"+id;
+            }
+            else {
+                anotherDao.delete(anotherModel);
+                return "Successful delete operation";
+            }
+
+        }catch (Exception e){
+            e.getMessage();
+        }
+        return null;
+    }
+
+    @Override
+    public AnotherDTO update(AnotherDTO anotherDTO, int updateId) {
+        AnotherDTO responseDTO=new AnotherDTO();
+        try {
+            AnotherModel anotherModel=anotherDao.findById((long)updateId).get();
+            if (anotherModel!=null){
+                anotherModel=anotherConverter.reConvert(anotherModel,anotherDTO);
+                anotherDao.save(anotherModel);
+                responseDTO=anotherConverter.convert(responseDTO,anotherModel);
+
+            }
+
+        }catch (Exception e){
+            e.getMessage();
+
+        }
+        return responseDTO;
+    }
+ 
 }

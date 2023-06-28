@@ -36,10 +36,11 @@ public class AnotherConverter implements Convert<AnotherDTO,AnotherModel> {
 
     @Override
     public List<AnotherDTO> convertAll(List<AnotherModel> anotherModels) {
+        AnotherDTO anotherDTO=new AnotherDTO();
         List<AnotherDTO> anotherDTOS=new ArrayList<>();
         List<AnotherModel> anotherModelList=anotherModels;
         for (AnotherModel anotherModel : anotherModelList) {
-            AnotherDTO anotherDTO=null;
+
             try {
                 anotherDTOS.add(populator.populate(anotherDTO,anotherModel));
 

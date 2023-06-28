@@ -9,6 +9,7 @@ import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
+import javax.swing.plaf.PanelUI;
 import java.util.List;
 
 @Controller
@@ -17,17 +18,29 @@ public class AnotherController {
     public final AnotherServices anotherServices;
 
     @QueryMapping
-    public List<AnotherDTO>getAll(){
+    public List<AnotherDTO> getAll() {
         return anotherServices.getAll();
     }
 
 
+
     @MutationMapping
-    public AnotherDTO create(@Argument AnotherDTO anotherDTO){
-       return  anotherServices.create(anotherDTO);
+    public AnotherDTO create(@Argument AnotherDTO anotherDTO) {
+        return anotherServices.create(anotherDTO);
     }
+
     @QueryMapping
-    public AnotherDTO getById(@Argument int id){
+    public AnotherDTO getById(@Argument int id) {
         return anotherServices.getById(id);
+    }
+
+    @MutationMapping
+    public String delete(@Argument int id) {
+        return anotherServices.delete(id);
+    }
+    @MutationMapping
+    public AnotherDTO update(@Argument AnotherDTO anotherDTO,int updateId){
+        return anotherServices.update(anotherDTO,updateId);
+
     }
 }

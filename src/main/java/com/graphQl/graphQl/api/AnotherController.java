@@ -20,10 +20,14 @@ public class AnotherController {
     public List<AnotherDTO>getAll(){
         return anotherServices.getAll();
     }
+
+
     @MutationMapping
-    public AnotherModel create(@Argument AnotherDTO anotherDTO){
-        AnotherModel anotherModel=new AnotherModel();
-         anotherServices.create(anotherDTO);
-         return anotherModel;
+    public AnotherDTO create(@Argument AnotherDTO anotherDTO){
+       return  anotherServices.create(anotherDTO);
+    }
+    @QueryMapping
+    public AnotherDTO getById(@Argument int id){
+        return anotherServices.getById(id);
     }
 }

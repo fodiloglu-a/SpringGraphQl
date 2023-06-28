@@ -1,0 +1,15 @@
+type CategoryModel{
+    id:Int,
+    name: String,
+    summary: String,
+    bookModels:[BookModel]
+    anotherModels:[AnotherModel]
+    }
+
+input CategoryDTO{
+
+    name: String,
+    summary: String,
+    bookModels:[BookDTO]
+    anotherModels:[AnotherDTO]
+}

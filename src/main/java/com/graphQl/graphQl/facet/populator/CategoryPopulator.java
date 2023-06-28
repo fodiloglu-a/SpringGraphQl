@@ -17,7 +17,7 @@ public class CategoryPopulator implements Populator<CategoryDTO, CategoryModel> 
     public CategoryDTO populate(CategoryDTO target, CategoryModel source) {
         target.setName(source.getName());
         target.setSummary(source.getSummary());
-        if (!source.getBookModels().isEmpty()){
+        if (source.getBookModels()!=null){
             try {
                 target.setBookModels(bookConverter.convertAll(source.getBookModels()));
             }catch (Exception e){
@@ -25,7 +25,7 @@ public class CategoryPopulator implements Populator<CategoryDTO, CategoryModel> 
             }
         }
 
-        if (!source.getAnotherModels().isEmpty()){
+        if (source.getAnotherModels()!=null){
             try {
                 target.setAnotherModels(anotherConverter.convertAll(source.getAnotherModels()));
             }catch (Exception e){

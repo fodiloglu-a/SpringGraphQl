@@ -1,0 +1,17 @@
+type BookModel{
+    id:Int,
+    name: String,
+    summary: String,
+    pageCount:Int,
+    publicationDate:String,
+    anotherModel:[AnotherModel],
+    categoryModel:[CategoryModel],
+}
+input BookDTO{
+    name: String,
+    summary: String,
+    pageCount:Int,
+    publicationDate:String,
+    anotherModel:[AnotherDTO],
+    categoryModel:[CategoryDTO],
+}

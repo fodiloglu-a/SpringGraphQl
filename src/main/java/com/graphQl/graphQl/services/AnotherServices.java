@@ -10,8 +10,10 @@ public interface AnotherServices {
     AnotherDTO create(AnotherDTO anotherDTO);
 
     AnotherDTO getById(int id);
+ 
 
     String delete(int id);
 
     AnotherDTO update(AnotherDTO anotherDTO, int updateId);
+ 
 }

@@ -8,4 +8,6 @@ public interface AnotherServices {
     List<AnotherDTO> getAll();
 
     AnotherDTO create(AnotherDTO anotherDTO);
+
+    AnotherDTO getById(int id);
 }

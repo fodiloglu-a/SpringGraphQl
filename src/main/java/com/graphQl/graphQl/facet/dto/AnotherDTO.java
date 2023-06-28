@@ -1,7 +1,6 @@
 package com.graphQl.graphQl.facet.dto;
 
-import com.graphQl.graphQl.model.BookModel;
-import com.graphQl.graphQl.model.CategoryModel;
+
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -21,7 +20,7 @@ public class AnotherDTO {
     private String nationality;
 
 
-    private List<CategoryDTO> categoryModels;
+    private List<CategoryDTO> categoryModels=new ArrayList<>();
 
 
     private List<BookDTO> bookModels = new ArrayList<>();

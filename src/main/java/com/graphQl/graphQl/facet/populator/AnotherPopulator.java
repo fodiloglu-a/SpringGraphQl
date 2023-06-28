@@ -25,7 +25,7 @@ public class AnotherPopulator implements Populator<AnotherDTO,AnotherModel>{
         target.setAddress(source.getAddress());
         target.setResume(source.getResume());
         target.setNationality(source.getNationality());
-        if (!source.getCategoryModels().isEmpty()){
+        if (source.getCategoryModels()!=null){
             try {
                 target.setCategoryModels(categoryConverter.convertAll(source.getCategoryModels()));
 
@@ -33,7 +33,7 @@ public class AnotherPopulator implements Populator<AnotherDTO,AnotherModel>{
                 e.getMessage();
             }
         }
-        if (!source.getBookModels().isEmpty()){
+        if (source.getBookModels()!=null){
             try {
                 target.setBookModels(bookConverter.convertAll(source.getBookModels()));
 
@@ -58,7 +58,7 @@ public class AnotherPopulator implements Populator<AnotherDTO,AnotherModel>{
         source.setEMail(target.getEMail());
         source.setResume(target.getResume());
         source.setNationality(target.getNationality());
-        if (!target.getCategoryModels().isEmpty()){
+        if (target.getCategoryModels()!=null){
             try {
                 source.setCategoryModels(categoryConverter.reConvertAll(target.getCategoryModels()));
 
@@ -66,7 +66,7 @@ public class AnotherPopulator implements Populator<AnotherDTO,AnotherModel>{
                 e.getMessage();
             }
         }
-        if (!target.getBookModels().isEmpty()){
+        if (target.getBookModels()!=null){
             try {
                 source.setBookModels(bookConverter.reConvertAll(target.getBookModels()));
             }catch (Exception e){

@@ -34,7 +34,7 @@ public class AnotherServicesImp implements AnotherServices {
 
     @Override
     public AnotherDTO create(AnotherDTO anotherDTO) {
-        AnotherDTO anotherDTO1=null;
+        AnotherDTO anotherDTO1=new AnotherDTO();
         try {
             AnotherModel anotherModel=anotherDao.save(anotherConverter.reConvert(new AnotherModel(),anotherDTO));
              anotherDTO1=anotherConverter.convert(new AnotherDTO(),anotherModel);
@@ -44,5 +44,21 @@ public class AnotherServicesImp implements AnotherServices {
 
 
         return anotherDTO1;
+    }
+
+    @Override
+    public AnotherDTO getById(int id) {
+        AnotherDTO anotherDTO=new AnotherDTO();
+        try {
+            AnotherModel anotherModel=anotherDao.getById((long) id);
+            if (anotherModel!=null){
+                anotherDTO=anotherConverter.convert(anotherDTO,anotherModel);
+                return anotherDTO;
+
+            }
+        }catch (Exception e){
+          e.getMessage();
+        }
+    return null;
     }
 }

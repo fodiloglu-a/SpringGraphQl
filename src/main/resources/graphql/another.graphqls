@@ -1,3 +1,25 @@
+type AnotherModel{
+    id:Int,
+    name:String,
+    surname:String,
+    address:String,
+    eMail:String,
+    resume:String,
+    nationality:String,
+    categoryModels:[CategoryModel],
+
+}
+input AnotherDTO {
+    name:String,
+    surname:String,
+    address:String,
+    eMail:String,
+    resume:String,
+    nationality:String,
+    categoryModels:[CategoryDTO],
+    bookModels:[BookDTO]
+}
+
 type Query{
     getAll:AnotherModel
 }
@@ -5,24 +27,4 @@ type Query{
 type Mutation{
     create(anotherDTO:AnotherDTO):AnotherModel
 
-}
-type AnotherModel{
-    id:ID!,
-    name:String,
-    surname:String,
-    address:String,
-    eMail:String,
-    resume:String
-    nationality:String
-}
-
-
-
-input AnotherDTO {
-    name:String,
-    surname:String,
-    address:String,
-    eMail:String,
-    resume:String,
-    nationality:String
 }

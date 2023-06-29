@@ -23,7 +23,8 @@ public class AnotherController {
     }
 
 
-
+ 
+ 
     @MutationMapping
     public AnotherDTO create(@Argument AnotherDTO anotherDTO) {
         return anotherServices.create(anotherDTO);
@@ -34,13 +35,14 @@ public class AnotherController {
         return anotherServices.getById(id);
     }
 
+ 
     @MutationMapping
     public String delete(@Argument int id) {
         return anotherServices.delete(id);
     }
     @MutationMapping
-    public AnotherDTO update(@Argument AnotherDTO anotherDTO,int updateId){
+    public AnotherDTO updateAnother(@Argument AnotherDTO anotherDTO, int updateId){
         return anotherServices.update(anotherDTO,updateId);
-
+ 
     }
 }

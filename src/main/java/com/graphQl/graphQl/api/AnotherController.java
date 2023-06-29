@@ -41,7 +41,7 @@ public class AnotherController {
         return anotherServices.delete(id);
     }
     @MutationMapping
-    public AnotherDTO updateAnother(@Argument AnotherDTO anotherDTO, int updateId){
+    public AnotherDTO updateAnother(@Argument AnotherDTO anotherDTO,@Argument int updateId){
         return anotherServices.update(anotherDTO,updateId);
  
     }

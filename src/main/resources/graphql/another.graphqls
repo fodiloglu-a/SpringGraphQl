@@ -21,13 +21,13 @@ input AnotherDTO {
 
 extend type Query {
 
-    getAll:[AnotherModel]
-    getById(id:Int):AnotherModel
+    getAllAnother:[AnotherModel]
+    getAnotherById(id:Int):AnotherModel
 }
 
 extend type Mutation  {
-    create(anotherDTO:AnotherDTO):AnotherModel,
-    delete(id:Int):String,
+    createAnother(anotherDTO:AnotherDTO):AnotherModel,
+    deleteAnother(id:Int):String,
     updateAnother(anotherDTO:AnotherDTO,updateId:Int):AnotherModel
 
  

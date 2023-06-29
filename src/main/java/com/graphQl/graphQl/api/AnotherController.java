@@ -8,12 +8,14 @@ import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.swing.plaf.PanelUI;
 import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
+@RequestMapping("/another")
 public class AnotherController {
     public final AnotherServices anotherServices;
 
@@ -23,8 +25,6 @@ public class AnotherController {
     }
 
 
- 
- 
     @MutationMapping
     public AnotherDTO create(@Argument AnotherDTO anotherDTO) {
         return anotherServices.create(anotherDTO);
@@ -35,14 +35,15 @@ public class AnotherController {
         return anotherServices.getById(id);
     }
 
- 
+
     @MutationMapping
     public String delete(@Argument int id) {
         return anotherServices.delete(id);
     }
+
     @MutationMapping
-    public AnotherDTO updateAnother(@Argument AnotherDTO anotherDTO, @Argument int updateId){
-        return anotherServices.update(anotherDTO,updateId);
- 
+    public AnotherDTO updateAnother(@Argument AnotherDTO anotherDTO, @Argument int updateId) {
+        return anotherServices.update(anotherDTO, updateId);
+
     }
 }

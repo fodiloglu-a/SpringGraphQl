@@ -1,5 +1,4 @@
 type CategoryModel{
-    id:Int,
     name: String,
     summary: String,
     bookModels:[BookModel]
@@ -12,4 +11,17 @@ input CategoryDTO{
     summary: String,
     bookModels:[BookDTO]
     anotherModels:[AnotherDTO]
+}
+
+type  Query {
+    getAllCategory:[CategoryModel],
+    getCategoryById(categoryId:Int):CategoryModel
+
+
+
+}
+type  Mutation {
+    createCategory(categoryDTO:CategoryDTO):CategoryModel
+    updateCategory(categoryDTO:CategoryDTO,updateId:Int):CategoryModel
+    deleteCategory(categoryId:Int):CategoryModel
 }

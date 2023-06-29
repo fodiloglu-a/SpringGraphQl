@@ -1,5 +1,4 @@
 type BookModel{
-    id:Int,
     name: String,
     summary: String,
     pageCount:Int,

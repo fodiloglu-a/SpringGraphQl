@@ -40,14 +40,14 @@ public class CategoryPopulator implements Populator<CategoryDTO, CategoryModel> 
     public CategoryModel rePopulate(CategoryModel source, CategoryDTO target) {
         source.setName(target.getName());
         source.setSummary(target.getSummary());
-        if(!target.getBookModels().isEmpty()){
+        if(target.getBookModels()!=null){
             try {
                 source.setBookModels(bookConverter.reConvertAll(target.getBookModels()));
             }catch (Exception e){
                 e.getMessage();
             }
         }
-        if(!target.getAnotherModels().isEmpty()){
+        if(target.getAnotherModels()!=null){
             try {
                 source.setAnotherModels(anotherConverter.reConvertAll(target.getAnotherModels()));
             }catch (Exception e){

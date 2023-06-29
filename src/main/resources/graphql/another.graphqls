@@ -1,5 +1,4 @@
 type AnotherModel{
-    id:Int,
     name:String,
     surname:String,
     address:String,
@@ -20,13 +19,13 @@ input AnotherDTO {
     bookModels:[BookDTO]
 }
 
-type Query{
- 
+extend type Query {
+
     getAll:[AnotherModel]
     getById(id:Int):AnotherModel
 }
 
-type Mutation{
+extend type Mutation  {
     create(anotherDTO:AnotherDTO):AnotherModel,
     delete(id:Int):String,
     updateAnother(anotherDTO:AnotherDTO,updateId:Int):AnotherModel

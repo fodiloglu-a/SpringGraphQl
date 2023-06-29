@@ -15,29 +15,29 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/another")
+
 public class AnotherController {
     public final AnotherServices anotherServices;
 
     @QueryMapping
-    public List<AnotherDTO> getAll() {
+    public List<AnotherDTO> getAllAnother() {
         return anotherServices.getAll();
     }
 
 
     @MutationMapping
-    public AnotherDTO create(@Argument AnotherDTO anotherDTO) {
+    public AnotherDTO createAnother(@Argument AnotherDTO anotherDTO) {
         return anotherServices.create(anotherDTO);
     }
 
     @QueryMapping
-    public AnotherDTO getById(@Argument int id) {
+    public AnotherDTO getAnotherById(@Argument int id) {
         return anotherServices.getById(id);
     }
 
 
     @MutationMapping
-    public String delete(@Argument int id) {
+    public String deleteAnother(@Argument int id) {
         return anotherServices.delete(id);
     }
 

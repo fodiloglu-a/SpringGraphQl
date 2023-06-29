@@ -16,7 +16,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Controller
-@RequestMapping("/category")
+
 public class CategoryController implements GraphQLMutationResolver, GraphQLQueryResolver {
 
     private  final CategoryServices categoryServices;

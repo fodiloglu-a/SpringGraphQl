@@ -14,3 +14,17 @@ input BookDTO{
     anotherModel:[AnotherDTO],
     categoryModel:[CategoryDTO],
 }
+
+extend type Query {
+
+    getAllBook:[BookModel]
+    getBookById(id:Int):BookModel
+}
+
+extend type Mutation  {
+    createBook(bookDTO:BookDTO):BookModel,
+    deleteBook(deleteBookId:Int):String,
+    updateBook(bookDTO:BookDTO,updateBookId:Int):BookModel
+
+
+}
